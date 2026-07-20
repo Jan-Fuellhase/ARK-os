@@ -1,13 +1,13 @@
 ---
 # yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
 # image will be published to ghcr.io/<user>/<name>
-name: ARK-os
+name: ark-os   
 # description will be included in the image's metadata
 description: ARK OS delivers Brave, useful stuff and all Codecs you need out-of-the-box.
 
 #  "kinoite-main" ist Fedora KDE inkl. RPM Fusion & Codecs!
 base-image: ghcr.io/ublue-os/kinoite-main
-image-version: lastest #  42 #   "latest" eintragen, wenn du immer direkt Upgrades willst
+image-version: latest  
 
 # module configuration, executed in order
 modules:
@@ -16,27 +16,30 @@ modules:
       - source: system
         destination: / # copies files/system/* into your image's root folder /
 
-  - type: dnf
+
+  - type: rpm-ostree
     repos:
-      #  offizielles Brave-Repository  
+      # offizielles Brave-Repository  
       - https://brave-browser-rpm-release.s3.brave.com/brave-browser.repo
+    keys:
+      # Brave benötigt diesen Sicherheitsschlüssel
+      - https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
+    optfix:
+      - brave.com # Repariert die Installationstrukur für Fedora Atomic
     install:
-      packages:
-        - brave-browser # Installiert Brave direkt ins System-Image
+      - brave-browser # Installiert Brave direkt ins System-Image
     remove:
-      packages:
-        # ARK entfernt Firefox, da ARK stattdessen Brave nutzen möchte 
-        - firefox
-        - firefox-langpacks 
+      # ARK entfernt Firefox, da ARK stattdessen Brave nutzen möchte 
+      - firefox
+      - firefox-langpacks 
 
   - type: default-flatpaks
     configurations:
       - notify: true # Sendet eine Benachrichtigung, wenn Flatpaks beim Update installiert werden
         scope: system
-        install: 
-          # Flatpaks eintragen, die ab Werk dabei sein sollen
+        # install: 
           # - org.videolan.VLC
-          # - org.kde.kdenlive (als Beispiel, falls du es brauchst)
+          # - org.kde.kdenlive 
       - scope: user 
 
   # WICHTIG: signing, dass ARK kryptografisch signiert wird.
