@@ -1,4 +1,4 @@
-# ARK-os &nbsp; [![bluebuild build badge](https://github.com/jan-fuellhase/ark-os/actions/workflows/build.yml/badge.svg)](https://github.com/jan-fuellhase/ark-os/actions/workflows/build.yml)
+# ARK-OS &nbsp; [![bluebuild build badge](https://github.com/jan-fuellhase/ark-os/actions/workflows/build.yml/badge.svg)](https://github.com/jan-fuellhase/ark-os/actions/workflows/build.yml)
 
 
 ## Installation
