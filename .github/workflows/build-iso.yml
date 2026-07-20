@@ -1,6 +1,6 @@
 name: Build ISO
 on:
-  workflow_dispatch: # manueller Start-Button in GitHub
+  workflow_dispatch:
 
 jobs:
   build-iso:
@@ -14,6 +14,7 @@ jobs:
           image_name: ark-os
           image_repo: ghcr.io/jan-fuellhase
           image_tag: latest
+          version: 44   # this may fix the pipeline
           iso_name: ark-os.iso
 
       - name: Upload ISO as artifact
