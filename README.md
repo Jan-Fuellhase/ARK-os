@@ -10,6 +10,8 @@ Github login required.
 
 To rebase an existing atomic Fedora installation to the latest build:
 
+- Install Fedora Kinoite [here](https://fedoraproject.org/atomic-desktops/kinoite/download/).
+
 - First rebase to the unsigned image, to get the proper signing keys and policies installed:
   ```
   rpm-ostree rebase ostree-unverified-registry:ghcr.io/jan-fuellhase/ark-os:latest
