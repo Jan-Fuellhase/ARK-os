@@ -49,16 +49,20 @@ modules:
           # - org.kde.kdenlive 
       - scope: user 
 
-  # Standard-Hintergrundbild überschreiben
+  # Standard-Hintergrundbild und Start-Symbol
   - type: script
     snippets:
-      # Entfernt den Standard-Wallpaper-Link von Fedora KDE
-      - "rm -rf /usr/share/wallpapers/Next"
-      # Setzt ARK-OS als neues Standard-Wallpaper für KDE
-      - "ln -s /usr/share/wallpapers/ARK-OS /usr/share/wallpapers/Next"
-      # SDDM Login-Screen (Standard-Fedora-Fallback)
-      - "rm -f /usr/share/backgrounds/default.png"
-      - "ln -s /usr/share/wallpapers/ARK-OS/contents/images/1920x1080.png /usr/share/backgrounds/default.png"
+      # Fedora-Standard-Wallpaper ersetzen
+      - "rm -rf /usr/share/wallpapers/Fedora"
+      - "ln -s /usr/share/wallpapers/ARK-OS /usr/share/wallpapers/Fedora"
 
+      # Zusätzliche Kompatibilität mit älteren KDE-Versionen
+      - "rm -rf /usr/share/wallpapers/Next"
+      - "ln -s /usr/share/wallpapers/ARK-OS /usr/share/wallpapers/Next"
+
+      # KDE-Startsymbol ersetzen
+      # -print zeigt im Build-Log, welche Dateien gefunden wurden
+      - "find /usr/share/icons/breeze /usr/share/icons/breeze-dark -name 'start-here-kde-plasma.svg' -print -exec cp --remove-destination /usr/share/icons/hicolor/scalable/places/start-here-kde-fedora.svg {} \\;"
+  
   # WICHTIG: signing, dass ARK kryptografisch signiert wird.
   - type: signing
