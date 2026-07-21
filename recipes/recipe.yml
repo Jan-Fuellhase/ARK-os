@@ -1,4 +1,3 @@
----
 # yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
 # image will be published to ghcr.io/<user>/<name>
 name: ark-os   
@@ -16,8 +15,7 @@ modules:
       - source: system
         destination: / # copies files/system/* into your image's root folder /
 
-
- - type: os-release
+  - type: os-release
     properties:
       NAME: "ARK OS"
       PRETTY_NAME: "ARK OS"
@@ -25,7 +23,6 @@ modules:
       VENDOR_URL: "https://github.com/Jan-Fuellhase/ARK-os"
       HOME_URL: "https://github.com/Jan-Fuellhase/ARK-os"
       BUG_REPORT_URL: "https://github.com/Jan-Fuellhase/ARK-os/issues"
-
 
   - type: rpm-ostree
     repos:
@@ -52,8 +49,7 @@ modules:
           # - org.kde.kdenlive 
       - scope: user 
 
-
-# Standard-Hintergrundbild überschreiben
+  # Standard-Hintergrundbild überschreiben
   - type: script
     snippets:
       # Entfernt den Standard-Wallpaper-Link von Fedora KDE
@@ -63,7 +59,6 @@ modules:
       # SDDM Login-Screen (Standard-Fedora-Fallback)
       - "rm -f /usr/share/backgrounds/default.png"
       - "ln -s /usr/share/wallpapers/ARK-OS/contents/images/1920x1080.png /usr/share/backgrounds/default.png"
-
 
   # WICHTIG: signing, dass ARK kryptografisch signiert wird.
   - type: signing
