@@ -1,0 +1,12 @@
+{
+    "KPlugin": {
+        "Id": "ARK-OS",
+        "Name": "ARK OS Default",
+        "Authors": [
+            {
+                "Name": "Jan Füllhase",
+                "Email": ""
+            }
+        ]
+    }
+}
