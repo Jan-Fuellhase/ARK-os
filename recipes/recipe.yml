@@ -17,13 +17,14 @@ modules:
         destination: / # copies files/system/* into your image's root folder /
 
 
-  - type: os-release
-    NAME: "ARK OS"
-    PRETTY_NAME: "ARK OS"
-    VENDOR_NAME: "Jan Füllhase"
-    VENDOR_URL: "https://github.com/Jan-Fuellhase/ARK-os"
-    HOME_URL: "https://github.com/Jan-Fuellhase/ARK-os"
-    BUG_REPORT_URL: "https://github.com/Jan-Fuellhase/ARK-os/issues"
+ - type: os-release
+    properties:
+      NAME: "ARK OS"
+      PRETTY_NAME: "ARK OS"
+      VENDOR_NAME: "Jan Füllhase"
+      VENDOR_URL: "https://github.com/Jan-Fuellhase/ARK-os"
+      HOME_URL: "https://github.com/Jan-Fuellhase/ARK-os"
+      BUG_REPORT_URL: "https://github.com/Jan-Fuellhase/ARK-os/issues"
 
 
   - type: rpm-ostree
