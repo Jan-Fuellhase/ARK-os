@@ -1,5 +1,10 @@
 # ARK-OS &nbsp; [![bluebuild build badge](https://github.com/jan-fuellhase/ark-os/actions/workflows/build.yml/badge.svg)](https://github.com/jan-fuellhase/ark-os/actions/workflows/build.yml)
 
+## Download ARK OS
+
+[![Download](https://img.shields.io/badge/Download-grey)](https://github.com/Jan-Fuellhase/ARK-os/actions/runs/29765912738/artifacts/8471320797)
+
+Github login required.
 
 ## Installation
 
