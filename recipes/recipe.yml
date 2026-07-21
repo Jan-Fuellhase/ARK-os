@@ -17,6 +17,15 @@ modules:
         destination: / # copies files/system/* into your image's root folder /
 
 
+  - type: os-release
+    NAME: "ARK OS"
+    PRETTY_NAME: "ARK OS"
+    VENDOR_NAME: "Jan Füllhase"
+    VENDOR_URL: "https://github.com/Jan-Fuellhase/ARK-os"
+    HOME_URL: "https://github.com/Jan-Fuellhase/ARK-os"
+    BUG_REPORT_URL: "https://github.com/Jan-Fuellhase/ARK-os/issues"
+
+
   - type: rpm-ostree
     repos:
       # offizielles Brave-Repository  
@@ -41,6 +50,19 @@ modules:
           # - org.videolan.VLC
           # - org.kde.kdenlive 
       - scope: user 
+
+
+# Standard-Hintergrundbild überschreiben
+  - type: script
+    snippets:
+      # Entfernt den Standard-Wallpaper-Link von Fedora KDE
+      - "rm -rf /usr/share/wallpapers/Next"
+      # Setzt ARK-OS als neues Standard-Wallpaper für KDE
+      - "ln -s /usr/share/wallpapers/ARK-OS /usr/share/wallpapers/Next"
+      # SDDM Login-Screen (Standard-Fedora-Fallback)
+      - "rm -f /usr/share/backgrounds/default.png"
+      - "ln -s /usr/share/wallpapers/ARK-OS/contents/images/1920x1080.png /usr/share/backgrounds/default.png"
+
 
   # WICHTIG: signing, dass ARK kryptografisch signiert wird.
   - type: signing
