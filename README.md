@@ -2,7 +2,7 @@
 
 ## Download ARK OS
 
-[![Download](https://img.shields.io/badge/Download-grey)](https://github.com/Jan-Fuellhase/ARK-os/actions/runs/29765912738/artifacts/8471320797)
+[![Download](https://img.shields.io/badge/Download-grey)](https://github.com/Jan-Fuellhase/ARK-os/actions/runs/29852209791/artifacts/8504255780)
 
 Github login required.
 
